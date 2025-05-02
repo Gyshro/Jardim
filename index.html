@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jardim da Cereja</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Introdução</title>
   <style>
     * {
       box-sizing: border-box;
@@ -12,125 +12,91 @@
     body {
       margin: 0;
       padding: 0;
-      background: linear-gradient(to top, #3fa34d 40%, #6dcf7d);
-      font-family: sans-serif;
+      background-color: #fce4ec;
       display: flex;
-      flex-direction: column;
+      justify-content: center;
       align-items: center;
       min-height: 100vh;
+      font-family: 'Arial', sans-serif;
       overflow-x: hidden;
     }
 
-    .titulo {
-      margin-top: 30px;
+    .container {
       text-align: center;
-    }
-
-    .titulo h2 {
-      color: white;
-      font-size: 22px;
-      font-weight: normal;
-      text-shadow: 1px 1px 2px #000;
-    }
-
-    .jardim {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 35px;
+      padding: 20px;
       max-width: 90%;
-      justify-content: center;
-      padding: 40px 20px 100px;
-      z-index: 2;
     }
 
-    .flor {
-      width: 70px;
-      height: 70px;
-      border-radius: 50%;
-      position: relative;
+    .frase {
+      font-size: 4.5vw;
+      color: #880e4f;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      margin-bottom: 20px;
+      line-height: 1.4;
+    }
+
+    .frase.ativa {
+      opacity: 1;
+    }
+
+    @media (min-width: 600px) {
+      .frase {
+        font-size: 20px;
+      }
+    }
+
+    #botaoJardim {
+      display: none;
+      padding: 12px 30px;
+      font-size: 16px;
+      background-color: #ad1457;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
       cursor: pointer;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      animation: balanca 3s ease-in-out infinite;
+      transition: background-color 0.3s;
+      margin-top: 30px;
     }
 
-    .flor:hover {
-      transform: scale(1.1);
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-    }
-
-    .flor::after {
-      content: '';
-      position: absolute;
-      width: 8px;
-      height: 40px;
-      background: green;
-      bottom: -40px;
-      left: 50%;
-      transform: translateX(-50%);
-      border-radius: 3px;
-    }
-
-    .branca   { background: radial-gradient(circle, #ffffff 50%, #e0e0e0); }
-    .vermelha { background: radial-gradient(circle, #ff4d4d 50%, #cc0000); }
-    .rosa     { background: radial-gradient(circle, #ff99cc 50%, #ff3399); }
-    .amarela  { background: radial-gradient(circle, #fff176 50%, #fbc02d); }
-
-    @keyframes balanca {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-5px); }
+    #botaoJardim:hover {
+      background-color: #880e4f;
     }
   </style>
 </head>
 <body>
-  <div class="titulo">
-    <h2>Um jardim aonde você pode se encontrar ( aperta nas bolinhas em ordem )</h2>
-  </div>
+  <div class="container">
+    <p class="frase">Você, uma rosa perdida do seu jardim</p>
+    <p class="frase">Perdida de onde seria realmente compreendida</p>
+    <p class="frase">Você, Cereja, como tantas rosas entre roseiros</p>
+    <p class="frase">Julgada pelo seu habitat e obrigada a florescer em tempos de tempestade</p>
+    <p class="frase">Ao invés de te pedirem pra florescer em tempos de sol</p>
+    <p class="frase">Mas existe um jardim pra rosas como você</p>
+    <p class="frase">Um jardim onde você pode ser quem você realmente é</p>
+    <p class="frase">Sem ter medo de que reclamem por isso</p>
+    <p class="frase">Um jardim não só de rosas</p>
+    <p class="frase">Mas um jardim onde você pode ser a maravilha que você é</p>
 
-  <div class="jardim">
-    <div class="flor branca"   onclick="mostrarMensagem(0)"></div>
-    <div class="flor vermelha" onclick="mostrarMensagem(1)"></div>
-    <div class="flor rosa"     onclick="mostrarMensagem(2)"></div>
-    <div class="flor amarela"  onclick="mostrarMensagem(3)"></div>
-    <div class="flor branca"   onclick="mostrarMensagem(4)"></div>
-    <div class="flor vermelha" onclick="mostrarMensagem(5)"></div>
-    <div class="flor rosa"     onclick="mostrarMensagem(6)"></div>
-    <div class="flor amarela"  onclick="mostrarMensagem(7)"></div>
-    <div class="flor branca"   onclick="mostrarMensagem(8)"></div>
-    <div class="flor vermelha" onclick="mostrarMensagem(9)"></div>
-    <div class="flor rosa"     onclick="mostrarMensagem(10)"></div>
-    <div class="flor amarela"  onclick="mostrarMensagem(11)"></div>
-    <div class="flor branca"   onclick="mostrarMensagem(12)"></div>
-    <div class="flor rosa"     onclick="mostrarMensagem(13)"></div>
-    <div class="flor vermelha" onclick="mostrarMensagem(14)"></div>
+    <button id="botaoJardim" onclick="irParaJardim()">Entrar no jardim</button>
   </div>
-
-  <audio id="clickSound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_d4a6f72075.mp3?filename=click-124467.mp3"></audio>
 
   <script>
-    const mensagens = [
-      "aqui você pode ser quem você quiser sendo acolhida e entendida também pelo seu dia a dia duro assim como você também pode ser validada e bem interpretada sem que te julguem por isso",
-      "você que sempre faz mais do que deveria só pra ver os outros sorrirem mesmo que ninguém pergunte se você tá bem mesmo que ninguém perceba o quanto você se cansa",
-      "e quando você chora e se culpa por não aguentar tudo sempre você esquece que já suportou mais do que muitos conseguiriam",
-      "não é exagero dizer que você é dessas pessoas que carregam o mundo mas ainda sorri como se estivesse leve",
-      "tem gente que não entende teu jeito sensato tua forma de falar certeiro teu jeito de reparar no que ninguém mais vê e se isso incomoda é porque teu olhar mexe",
-      "você não é plágio de ninguém você é o tipo de pessoa que bagunça o coração dos outros só por existir",
-      "tem quem tente te podar mas você floresce mesmo assim e olha só teu jardim interno sempre acha um jeito de nascer de novo",
-      "dentre todas as flores você não passa despercebida você impressiona até quando não percebe",
-      "seus espinhos não afastam na verdade eles são tua proteção tua resposta ao que te machucou e ainda assim você continua sendo bonita",
-      "teus caprichos são poesia disfarçada teus detalhes são parte do encanto teu modo de ser é o que faz você ser você",
-      "você não merecia ser tão má compreendida mas mesmo assim você segue tentando com um coração que não desiste de amar mesmo quando tá exausta",
-      "e entre tantas pétalas você é aquela que deixa perfume até depois de ir embora aquela que marca mesmo de longe",
-      "cada raiz tua carrega uma história e nenhuma delas é fraca mesmo quando doeu mesmo quando quase ninguém viu",
-      "você é aquela flor que mesmo sem sol inventa luz e mesmo sem espaço inventa chão",
-      "e se existe um lugar pra florescer é aqui onde você pode ser você sem precisar pedir desculpa por isso"
-    ];
+    const frases = document.querySelectorAll('.frase');
+    const botao = document.getElementById('botaoJardim');
 
-    function mostrarMensagem(index) {
-      document.getElementById('clickSound').play();
+    frases.forEach((frase, index) => {
       setTimeout(() => {
-        alert(mensagens[index]);
-      }, 100);
+        frase.classList.add('ativa');
+        if (index === frases.length - 1) {
+          setTimeout(() => {
+            botao.style.display = 'inline-block';
+          }, 1000);
+        }
+      }, index * 2000);
+    });
+
+    function irParaJardim() {
+      window.location.href = 'jardim.html';
     }
   </script>
 </body>
